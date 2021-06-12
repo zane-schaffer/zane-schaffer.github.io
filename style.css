@@ -1,0 +1,40 @@
+@font-face {
+  font-family: fira;
+  src: url(assets/FiraCode-Retina.ttf);
+}
+
+html,
+body {
+  margin: 0;
+  padding-left: 40;
+  padding-right: 40;
+}
+
+canvas {
+  display: block;
+}
+.blink_me {
+  animation: blinker 1s ease-in-out infinite;
+}
+
+@keyframes blinker {
+  100% {
+    opacity: 0;
+  }
+}
+.tonasket {
+  font-style: italic;
+  color: rgb(6, 116, 79);
+  font-size: 30px;
+}
+
+.myContainer {
+  position: relative;
+  top: 100vh;
+  text-align: center;
+  font-size: xx-large;
+  font-family: "fira";
+  color: white;
+  height: 100%;
+  background-color: rgb(22, 22, 22);
+}
