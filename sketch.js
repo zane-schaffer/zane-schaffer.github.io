@@ -5,7 +5,12 @@ let s = function (p) {
 
   }
   p.setup = function () {
-    canvas = p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
+    let mobile = 400;
+    if (p.windowWidth < mobile) {
+      canvas = p.createCanvas(p.windowWidth, p.windowHeight / 3, p.WEBGL);
+    } else {
+      canvas = p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
+    }
     canvas.position(0, 0,)
     p.textFont(fira);
     p.frameRate(60)
@@ -18,13 +23,19 @@ let s = function (p) {
     p.push()
     p.translate(-p.width / 10, 0)
     time = p.millis()
-    p.rotateX(time * 0.0005)
-    p.rotateY(time * 0.0005)
-
+    if (p.mouseIsPressed) {
+      let a = p.atan2(p.mouseY - p.height / 2, p.mouseX - p.width / 2)
+      p.rotateX(a);
+      p.rotateY(a);
+      p.stroke(0, 200, 200)
+    } else {
+      p.rotateX(time * 0.0005)
+      p.rotateY(time * 0.0005)
+      p.stroke(255)
+    }
     p.fill(0, 160, 255, 0)
-    p.stroke(255)
-
     p.sphere((p.windowWidth / 6), 3, 3)
+
     p.pop()
 
     p.text('Zane', 0, -gap)
@@ -40,30 +51,3 @@ let s = function (p) {
 let header = new p5(s, 'container');
 
 
-let k = (p) => {
-  let fira;
-  p.preload = function () {
-    fira = p.loadFont('assets/FiraCode-Retina.ttf');
-
-  }
-  p.setup = () => {
-    var canvas = p.createCanvas(p.windowWidth, p.windowHeight);
-    canvas.position(0, 0, 'relative');
-    p.textFont(fira);
-
-
-  }
-
-
-  p.draw = () => {
-    var centerW = p.width / 2;
-    var centerH = p.height / 2;
-    p.textAlign(p.CENTER)
-    p.background(22);
-    p.textSize(p.windowWidth / 23)
-    p.fill(255);
-
-
-  }
-}
-let links = new p5(k, 'links')
