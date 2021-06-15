@@ -3,66 +3,45 @@
   src: url(assets/FiraCode-Retina.ttf);
 }
 
-html,
+@import url("chota.min.css");
+:root {
+  --bg-color: #2e3440;
+  --bg-secondary-color: #3b4252;
+  --font-color: #d8dee9;
+  --color-grey: #4c566a;
+  --color-darkGrey: #434c5e;
+  --font-family-sans: fira;
+  --font-family-mono: fira;
+  --color-primary: #5e81ac;
+}
+
 body {
-  background-color: rgb(22, 22, 22);
-  margin: 0;
-  padding-left: 0;
-  padding-right: 0;
-  cursor: grab;
+  --bg-color: #2e3440;
+  --bg-secondary-color: #3b4252;
+  --font-color: #d8dee9;
+  --color-grey: #4c566a;
+  --color-darkGrey: #434c5e;
+  --font-family-sans: fira;
+  --font-family-mono: fira;
+  --color-primary: #5e81ac;
+  user-select: #434c5e;
+}
+#links a {
+  color: var(--font-color);
+}
+#canvasContainer {
+  width: auto;
+  height: 700px;
+}
+.p5Canvas {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.container {
-  height: 200vh;
-  background-color: rgb(22, 22, 22);
-  position: static;
-}
-canvas {
-  display: block;
-}
-.blink_me {
-  animation: blinker 1s ease-in-out infinite;
-}
-
-@keyframes blinker {
-  100% {
-    opacity: 0;
+@media only screen and (max-width: 475px) {
+  #canvasContainer {
+    width: auto;
+    height: 300px;
   }
-}
-.tonasket {
-  font-style: italic;
-  color: rgb(6, 116, 79);
-  font-size: 30px;
-}
-
-.myContainer {
-  position: relative;
-  top: 100vh;
-  text-align: center;
-  font-size: xx-large;
-  font-family: "fira";
-  color: white;
-  height: 100vh;
-  background-color: rgb(22, 22, 22);
-}
-
-@media only screen and (max-width: 400px) {
-  .myContainer {
-    position: relative;
-    top: 50vh;
-    text-align: center;
-    font-size: xx-large;
-    font-family: "fira";
-    color: white;
-    height: 100vh;
-    background-color: rgb(22, 22, 22);
-  }
-}
-
-.links {
-  text-decoration: none;
-  color: white;
-}
-.links:hover {
-  color: rgb(6, 116, 79);
 }
